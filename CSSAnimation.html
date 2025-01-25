@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knight vs Dragon</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #1e1e2f;
+        overflow: hidden;
+    }
+
+    #battlefield {
+        position: relative;
+        width: 600px;
+        height: 300px;
+    }
+
+    .character {
+        position: absolute;
+        bottom: 0;
+        width: 150px;
+    }
+
+    #knight {
+        left: 50px;
+        animation: knight-slash 2s infinite;
+    }
+
+    #dragon {
+        right: 50px;
+        animation: dragon-fire 2s infinite;
+    }
+
+    .fire {
+        position: absolute;
+        bottom: 50px;
+        right: 180px;
+        width: 0;
+        height: 10px;
+        background: linear-gradient(90deg, red, orange, yellow);
+        border-radius: 50%;
+        animation: fire-breath 2s infinite;
+    }
+
+    @keyframes knight-slash {
+        0%, 100% {
+            transform: translateX(0) rotate(0);
+        }
+        50% {
+            transform: translateX(50px) rotate(0);
+        }
+    }
+
+    @keyframes dragon-fire {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes fire-breath {
+        0%, 100% {
+            width: 0;
+            opacity: 0;
+        }
+        50% {
+            width: 150px;
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="battlefield">
+        <img id="knight" class="character" src="knight.png" alt="Knight" stlye="transform: scaleX(-1);">
+        <img id="dragon" class="character" src="dragon.png" alt="Dragon">
+        <div class="fire"></div>
+    </div>
+</body>
+</html>
