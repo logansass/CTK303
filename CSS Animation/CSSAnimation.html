@@ -54,16 +54,18 @@
             transform: translateX(0) rotate(0);
         }
         50% {
-            transform: translateX(50px) rotate(0);
+            transform: translateX(150px) rotate(0);
         }
     }
 
     @keyframes dragon-fire {
         0%, 100% {
             transform: scale(1);
+            opacity: 1;
         }
         50% {
-            transform: scale(1.1);
+            transform: scale(1);
+            opacity: 0;
         }
     }
 
