@@ -1,0 +1,44 @@
+
+  #computer {width: 500px display( block);
+    transform:translate(400px, 500px) ;
+    opacity: 1;
+     transition: all 1s linear; 
+      
+    
+}
+
+    #computer:hover {
+        opacity: .25;
+        transform: scale(2);
+        transform-origin: -40% -60%;
+        
+    }
+
+    #controller {width: 500px display( block);
+        opacity: 1;
+        transition: all 1s linear;
+        transform:translate(600px, 500px) ;
+        
+    }
+    
+        #controller:hover {
+            opacity: .25;
+            transform: scale(2);
+            transform-origin: -100% -60%;
+            
+        }
+
+        #web {width: 500px display( block);
+            opacity: 1;
+            transition: all 1s linear;
+            transform:translate(800px, 500px) ;
+            
+            
+        }
+        
+            #web:hover {
+                opacity: .25;
+                transform: scale(2);
+                transform-origin: -160% -60%;
+               
+            }
