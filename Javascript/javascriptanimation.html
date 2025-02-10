@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knight vs Dragon</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        background-color: #1e1e2f;
+        overflow: hidden;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    #battlefield {
+        position: relative;
+        width: 600px;
+        height: 300px;
+    }
+
+    .character {
+        position: absolute;
+        bottom: 0;
+        width: 150px;
+        cursor: pointer;
+    }
+
+    #knight {
+        left: 50px;
+       
+    }
+
+    #dragon {
+        right: -825px;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .fire {
+        position: absolute;
+        bottom: 250px;
+        right: 180px;
+        width: 0;
+        height: 50px;
+        background: linear-gradient(90deg, red, orange, yellow);
+        border-radius: 50%;
+        transition: width 1s ease-in-out, opacity 1s ease-in-out;
+    }
+    @keyframes fire-breath {
+        0%, 100% {
+            width: 0;
+            opacity: 0;
+        }
+        50% {
+            width: 250px;
+            opacity: 1;
+        }
+    }
+    #counter {
+        font-size: 100px;
+        margin-bottom: 600px;
+    }
+</style>
+</head>
+<body>
+    <div id="counter">Dragons Defeated: 0</div>
+    <div id="battlefield">
+        <img id="knight" class="character" src="knight.png" alt="Knight" stlye="transform: scaleX(-1);">
+        <img id="dragon" class="character" src="dragon.png" alt="Dragon" style="width: 1024px; height: 821px; transform: scaleX(-1);">
+        <div class="fire"></div>
+    </div>
+
+    <script>
+       let clickCount = 0;
+        document.getElementById("knight").addEventListener("click", function() {
+            clickCount++;
+            document.getElementById("counter").textContent = "Dragons Defeated: " + clickCount;
+
+            let knight = this;
+            let dragon = document.getElementById("dragon");
+            let fire = document.querySelector(".fire");
+            let randomSpeed = (Math.random() * 2) + 2; // Random speed between 2s and 4s
+            
+            knight.style.transition = `transform ${randomSpeed}s ease-in-out`;
+            knight.style.transform = "translateX(350px) scale(2)";
+            fire.style.opacity = "0.25";
+            fire.style.width = "250px";
+            dragon.style.opacity = "0.25";
+            
+            setTimeout(() => {
+                knight.style.transform = "translateX(0) scale(1)";
+                fire.style.opacity = "0";
+                fire.style.width = "0";
+                dragon.style.opacity = "1";
+            }, randomSpeed * 1000);
+        });
+    </script>
+</body>
+</html>
